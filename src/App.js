@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import OrderImages from './OrderImages';
+import OrderNameInput from './OrderNameInput';
 
 function App() {
   const [orderName, setOrderName] = useState('');
@@ -13,15 +14,8 @@ function App() {
 
   return (
     <div>
-      <OrderImages drinkId={drinkId} burgerId={burgerId} sideId={sideId} />
-      <section>
-        <h1>
-          Order for: {orderName}
-        </h1>
-        <input onChange={(e) => {
-          setOrderName(e.target.value);
-        }}/>
-      </section>
+      <OrderImages drinkId={drinkId} burgerId={burgerId} sideId={sideId}/>
+      <OrderNameInput setOrderName={setOrderName} orderName={orderName}/>
       <section>
         <div>
           Select a Burger:

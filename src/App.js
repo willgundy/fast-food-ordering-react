@@ -7,7 +7,7 @@ function App() {
   const [burgerId, setBurgerId] = useState('1');
   const [drinkId, setDrinkId] = useState('1');
   const [sideId, setSideId] = useState('1');
-  const [orderInstructions, setOrderInstructions] = useState('');
+  const [orderInstructions, setOrderInstructions] = useState(['test instruction']);
 
   return (
     <div>
@@ -49,6 +49,12 @@ function App() {
             <option value='3'>Tea</option>
           </select>
         </div>
+      </section>
+      <section>
+        <h2>
+          Order Instructions:
+        </h2>
+        {orderInstructions.map((instruction, i) => <p key={i}>{instruction}</p>)}
       </section>
     </div>
   );

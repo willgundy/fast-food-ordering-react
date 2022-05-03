@@ -3,11 +3,12 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [orderName, setOrderName] = useState('Bob');
+  const [orderName, setOrderName] = useState('');
   const [burgerId, setBurgerId] = useState('1');
   const [drinkId, setDrinkId] = useState('1');
   const [sideId, setSideId] = useState('1');
-  const [orderInstructions, setOrderInstructions] = useState(['test instruction']);
+  const [orderInstructions, setOrderInstructions] = useState([]);
+  const [instructionInput, setInsturctionInput] = useState(['']);
 
   return (
     <div>
@@ -51,6 +52,17 @@ function App() {
         </div>
       </section>
       <section>
+        <form onSubmit={
+          (e) => {
+            e.preventDefault();
+            setOrderInstructions([...orderInstructions, instructionInput]);
+            setInsturctionInput('');
+          }
+        }>
+          Add Order Instructions
+          <input value={instructionInput} onChange={(e) => setInsturctionInput(e.target.value)}/>
+          <button>Submit</button>
+        </form>
         <h2>
           Order Instructions:
         </h2>

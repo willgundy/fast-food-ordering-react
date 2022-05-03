@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import OrderImages from './OrderImages';
 
 function App() {
   const [orderName, setOrderName] = useState('');
@@ -12,11 +13,7 @@ function App() {
 
   return (
     <div>
-      <section>
-        <img src={`burger-${burgerId}.png`}/>
-        <img src={`side-${sideId}.png`}/>
-        <img src={`drink-${drinkId}.png`}/>
-      </section>
+      <OrderImages drinkId={drinkId} burgerId={burgerId} sideId={sideId} />
       <section>
         <h1>
           Order for: {orderName}

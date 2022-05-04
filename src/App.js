@@ -4,6 +4,8 @@ import { useState } from 'react';
 import OrderImages from './OrderImages';
 import OrderNameInput from './OrderNameInput';
 import OrderSelector from './OrderSelector';
+import OrderInstructionForm from './OrderInstructionForm';
+import OrderInstructions from './OrderInstructions';
 
 function App() {
   const [orderName, setOrderName] = useState('');
@@ -16,6 +18,12 @@ function App() {
   const drinkOptions = ['Soda', 'Coffee', 'Tea'];
   const sideOptions = ['Fries', 'Chips', 'Salad'];
 
+  function handleInstructionSubmit(e) {
+    e.preventDefault();
+    setOrderInstructions([...orderInstructions, instructionInput]);
+    setInstructionInput('');
+  }
+
   return (
     <div>
       <OrderImages drinkId={drinkId} burgerId={burgerId} sideId={sideId}/>
@@ -26,21 +34,13 @@ function App() {
         <OrderSelector text={'Select a Drink:'} editor={setDrinkId} options={drinkOptions}/>
       </section>
       <section>
-        <form onSubmit={
-          (e) => {
-            e.preventDefault();
-            setOrderInstructions([...orderInstructions, instructionInput]);
-            setInstructionInput('');
-          }
-        }>
-          Add Order Instructions
-          <input value={instructionInput} onChange={(e) => setInstructionInput(e.target.value)}/>
-          <button>Submit</button>
-        </form>
-        <h2>
-          Order Instructions:
-        </h2>
-        {orderInstructions.map((instruction, i) => <p key={i}>{instruction}</p>)}
+        <OrderInstructionForm 
+          handleSubmit={handleInstructionSubmit} 
+          instructionInput={instructionInput} 
+          setInstructionInput={setInstructionInput}/>
+        <OrderInstructions 
+          orderInstructions={orderInstructions}
+        />
       </section>
     </div>
   );

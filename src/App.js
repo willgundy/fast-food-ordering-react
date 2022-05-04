@@ -39,8 +39,7 @@ function App() {
           instructionInput={instructionInput} 
           setInstructionInput={setInstructionInput}/>
         <OrderInstructions 
-          orderInstructions={orderInstructions}
-        />
+          orderInstructions={orderInstructions}/>
       </section>
     </div>
   );

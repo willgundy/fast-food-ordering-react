@@ -1,38 +1,83 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+  border-radius: 5px;
+  height: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.orderImages {
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+}
+
+.orderImages img {
+  width: 300px;
+  height: 30vh;
+}
+
+
+.orderInput {
+  margin-bottom: 20px;
+}
+
+.orderSelectors {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.orderSelector label {
+  margin-right: 10px;
+  font-weight: bolder;
+}
+
+.orderSelector select {
+  height: 30px;
+  width: 200px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.orderInfoEditing {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+form input {
+  height: 40px;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+form button {
+  width: 50%;
+  background-color: black;
   color: white;
+  border: none;
+  height: 30px;
+  border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
 }

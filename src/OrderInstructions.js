@@ -8,6 +8,5 @@ export default function OrderInstructions(props) {
       </h2>
       {props.orderInstructions.map((instruction, i) => <p key={i}>{instruction}</p>)}
     </div>
-
   );
 }

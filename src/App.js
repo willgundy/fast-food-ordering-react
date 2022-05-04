@@ -24,15 +24,15 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
       <OrderImages drinkId={drinkId} burgerId={burgerId} sideId={sideId}/>
-      <OrderNameInput setOrderName={setOrderName} orderName={orderName}/>
-      <section>
+      <section className='orderSelectors'>
         <OrderSelector text={'Select a Burger:'} editor={setBurgerId} options={burgerOptions}/>
         <OrderSelector text={'Select a Side:'} editor={setSideId} options={sideOptions}/>
         <OrderSelector text={'Select a Drink:'} editor={setDrinkId} options={drinkOptions}/>
       </section>
-      <section>
+      <section className='orderInfoEditing'>
+        <OrderNameInput setOrderName={setOrderName} orderName={orderName}/>
         <OrderInstructionForm 
           handleSubmit={handleInstructionSubmit} 
           instructionInput={instructionInput} 
